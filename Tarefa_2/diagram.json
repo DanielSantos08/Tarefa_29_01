@@ -1,0 +1,73 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-pi-pico-w", "id": "pico", "top": 54.35, "left": 99.55, "attrs": {} },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 169.2,
+        "left": -101.8,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": 207.6,
+        "left": -111.4,
+        "attrs": { "color": "yellow" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": 236.4,
+        "left": -121,
+        "attrs": { "color": "green" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 311.15,
+        "left": -67.2,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 330.35,
+        "left": -67.2,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 349.55,
+        "left": -67.2,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-pushbutton-6mm",
+        "id": "btn1",
+        "top": 103.4,
+        "left": 48,
+        "attrs": { "color": "green" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "r3:2", "pico:GND.4", "green", [ "v0" ] ],
+      [ "r2:2", "pico:GND.4", "green", [ "v0" ] ],
+      [ "r1:2", "pico:GND.4", "green", [ "v0" ] ],
+      [ "btn1:2.r", "pico:GP5", "green", [ "h0" ] ],
+      [ "btn1:1.r", "pico:GND.2", "green", [ "v0" ] ],
+      [ "led3:A", "pico:GP13", "green", [ "v0" ] ],
+      [ "led3:C", "r3:1", "green", [ "v0" ] ],
+      [ "led2:A", "pico:GP12", "yellow", [ "v0" ] ],
+      [ "led2:C", "r2:1", "yellow", [ "v0" ] ],
+      [ "led1:A", "pico:GP11", "red", [ "v0" ] ],
+      [ "led1:C", "r1:1", "red", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
